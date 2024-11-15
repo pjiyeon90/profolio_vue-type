@@ -1,0 +1,206 @@
+{
+    "project": [
+      {
+        "project_name": "해양 생물 연구 센터",
+        "project_type": "반응형 웹",
+        "project_thumnail": "ocean_thumnail.png",
+        "project_summary": "본 프로젝트는 반응형 웹으로 해양생물연구에 대한 자료나 구조ㆍ치료에 대한 정보를 제공합니다.",
+        "development_period": {
+          "date": "2024.07.08(월) ~ 2024.08",
+          "duration_weeks": 4
+        },
+        "team_composition": [
+          {
+            "name": "박지연",
+            "role": "디자인 및 메인 페이지, JSON 작업, 기타 API"
+          },
+          {
+            "name": "강민현",
+            "role": "서브 페이지, 기획 및 개발"
+          },
+          {
+            "name": "고유나",
+            "role": "서브 페이지 담당, 개발 및 리소스"
+          },
+          {
+            "name": "박민지",
+            "role": "서브 페이지 담당, JSON 작업 및 리소스"
+          }
+        ],
+        "development_environment": [
+          "HTTP",
+          "SCSS",
+          "JAVASCRIPT",
+          "JQUERY"
+        ],
+        "project_description": {
+          "overview": "본 프로젝트는 한화해양생물연구센터 사이트를 리뉴얼한 것으로 해양생물에 대한 정보나 연구 자료, 구조 치료에 대한 정보를 얻을 수 있는 사이트입니다. 상업적으로 만든 사이트가 아닌 만큼 관심도가 낮아 오랫동안 방치, 노후화되고 옛스러운 디자인에 고착되어있어 리뉴얼을 결정하였습니다.정보 전달의 목적이지만 사용자가 사용하기 쉽고 정보를 한눈에 볼 수 있도록 디자인 방향성을 잡고 리뉴얼을 진행하였습니다.",
+          "key_features": [
+            "반응형 웹 디자인: _common.scss에서 반응형 변수를 사용하여 기기 유형에 맞춰 화면 크기 최적화.",
+            "사이드 네비게이션을 통해 각 섹션으로 이동할 수 있도록 idx 값을 활용.",
+            "해양 생물 연구 센터 사이트의 정보는 페이지별로 유형이 나누어져 있으며 JSON으로 처리.",
+            "메인 페이지에서 사용자가 특정 탭을 클릭하면 정보가 로컬 스토리지에 저장되고, 서브 페이지에서 해당 값을 받아 관련 콘텐츠를 즉시 표시.",
+            "연구 자료를 검색할 수 있는 기능을 제공하며, 입력한 값에 맞는 데이터를 필터링하고 출력.",
+            "클릭한 탭에 맞는 리스트를 data-num 속성을 사용해 동적으로 표시."
+          ],
+          "team_contribution": {
+            "title": "팀내 기여도",
+            "done_page": "(메인 페이지 / 서브 : 구조치료ㆍ실적)"
+          },
+          "header_functionality": [
+            "idx 값이 0이 아닐 경우 배경색을 추가하여 가독성을 높임.",
+            "스크롤 시, 헤더는 HeaderVisible = false로 설정되고, 스크롤 업 시 HeaderVisible = true로 설정.",
+            "768px 이하의 화면 크기에서는 모바일 모드로 변경되며, 네비게이션 메뉴의 토글 기능 작동."
+          ],
+          "aside_navigation": [
+            "인디케이터를 클릭하면 해당 섹션으로 이동하고, active 클래스를 추가하여 transform: translateY로 이동.",
+            "마우스 휠 기능을 이용해 섹션 간 이동하며, t_device 값에 따라 휠 기능을 활성화/비활성화."
+          ],
+          "tab_function": [
+            "탭을 클릭할 때, 해당 탭의 데이터를 로컬 스토리지에 저장하고 서브 페이지에서 이를 불러와 표시.",
+            "fetch를 이용해 JSON 데이터를 로드하고, 텍스트 항목은 elp에, 사진 항목은 elFigure에 출력."
+          ],
+          "kakao_map_api": {
+            "description": "카카오맵 API를 사용하여 Aqua Planet 등 장소를 검색할 수 있는 기능을 제공. 검색 결과는 최대 5개로 제한하고, 각 결과에 마커를 생성.",
+            "problem": "검색 결과의 정보 박스가 맵을 가려서 스크롤 시 맵을 제대로 볼 수 없는 문제 발생. 이를 해결하기 위해 transformX 값을 사용해 정보 박스를 숨기고, 아이콘 클릭 시에만 확장되도록 개선."
+          }
+        },
+        "troubleshooting": {
+          "mouse_wheel": {
+            "problem": "마우스가 없는 모바일, 태블릿 기기에서 휠 기능을 비활성화하지 않아 여러 가지 문제가 발생.",
+            "solution": "휠 기능을 사용하려면 position: fixed 스타일을 사용해야 하지만, 이를 적용하면 메인 영역이 고정되어 '떠다니는' 현상이 발생. 이를 해결하기 위해 푸터를 메인 영역 안에 포함시켜 휠 기능과 푸터가 정상적으로 작동하도록 수정."
+          },
+          "kakao_map": {
+            "problem": "맵에서 검색 결과의 정보 박스가 화면을 가려 맵 스크롤에 방해가 됨.",
+            "solution": "transformX를 사용해 정보 박스를 숨기고, 아이콘 클릭 시에만 확장되도록 개선하여 맵을 스크롤할 때 정보 박스가 화면을 가리지 않도록 수정."
+          },
+          "logo": {
+            "photo": ["ocean_logo.svg"]
+          },
+          "figma": {
+            "scene": ["ocean_logo.svg"]
+          }
+
+        }
+      },
+      {
+        "project_name": "SEOUL - W",
+        "project_type": "모바일 APP",
+        "project_thumnail": "seoul_thumnail.png",
+        "project_summary": "본 프로젝트는 KOSPI API를 이용해 서울 문화 공연 정보를 제공하는 pwa 웹앱입니다.",
+        "development_period": {
+          "date": "2024.09.27(금) ~ 2024.10.16(수)",
+          "duration_weeks": 2
+        },
+        "team_composition": [
+          {
+            "name": "박지연",
+            "role": "디자인 및 로그인, 데이터 베이스"
+          },
+          {
+            "name": "고유나",
+            "role": "기능 개발 및 API"
+          },
+          {
+            "name": "성주영",
+            "role": "기획 및 API"
+          },
+          {
+            "name": "허다영",
+            "role": "서버 관리 및 배포"
+          }
+        ],
+        "development_environment": [
+          "NEXT",
+          "SCSS",
+          "firebase",
+          "zustand",
+          "JAVAScript",
+          "pwa",
+          "Mui",
+          "swiper"
+        ],
+        "project_description": {
+          "overview": "본 프로젝트는 공연예술통합전산망(KOPIS)의 오픈 API를 활용하여 서울에서 열리는 공연, 전시, 콘서트 등 다양한 문화 행사 정보를 실시간으로 확인할 수 있는 모바일 사이트(480PX)입니다. 서울 지역에서 열리는 문화 행사 정보만을 제공하기 위해 signgucode: 11을 사용하여 서울로 한정하였으며, 이번주 공연, 공연 예정, 장르별 공연을 각각의 섹션으로 구성하여 장르별 탭을 통해 사용자가 원하는 정보를 간편하고 쉽게 볼 수 있게 구성하였습니다.",
+          "key_features": [
+            "KOPIS(공연예술통합전산망) open API 활용",
+            "이번주 공연, 공연 예정, 장르별 공연을 각각 Params로 구분하여 비동기 요청 처리 및 여러 요청을 동시에 처리하는 promise.all() 방식으로 로딩 시간 최적화",
+            "카카오맵 API를 사용해 디테일 페이지의 장소 탭에서 공연장 위치 제공",
+            "자체 회원 가입 및 SNS로 간편 로그인하면 로그인한 정보 값을 Firebase에 DB로 저장",
+            "로그인 시 개인별 ID값을 이용해 리뷰 작성 및 북마크 등록/삭제 기능 제공"
+          ],
+          "team_contribution": {
+            "title": "팀내 기여도",
+            "done_page": "(로그인)"
+          },
+          "header_functionality": [
+            "NextAuth를 사용한 로그인 및 인증 처리",
+            "반복 사용되는 input을 component화하여 background 이미지 처리 및 유효성 검사 기능",
+            "Github, Google, NaverProvider를 이용해 간편 로그인 기능 구현",
+            "JWT 토큰을 세션에 저장하여 자동 로그인 상태 유지"
+          ],
+          "aside_navigation": [
+            "로그인 상태 유지 및 세션 정보 활용",
+            "마이페이지에서 회원 정보 수정 및 탈퇴 기능 제공"
+          ],
+          "tab_function": [
+            "중복 체크 및 이메일 형식 유효성 검사",
+            "회원가입 후 Firebase DB에 사용자 정보 저장 및 성공 후 리디렉션"
+          ],
+          "kakao_map_api": {
+            "description": "카카오맵 API를 사용하여 공연장 위치 정보를 제공. 공연 상세 페이지에서 해당 장소를 지도에 표시."
+          }
+        },
+        "troubleshooting": {
+          "social_login": {
+            "problem": "소셜로 간편 로그인 후 마이페이지에서 회원 수정 클릭 시 '유저를 찾을 수 없습니다'라는 에러 발생",
+            "solution": "간편 로그인으로 들어오는 유저도 Firebase에 유저 정보가 없으면 자동으로 회원 가입 시켜 DB에 저장하고, 이를 기반으로 회원 수정 페이지에 값을 불러올 수 있도록 수정"
+          },
+          "inconsistent_data": {
+            "problem": "소셜 로그인 시 각 소셜별로 제공하는 데이터가 달라 회원 수정 시 불러오는 데이터가 일관되지 않는 문제 발생",
+            "solution": "이름을 주지 않는 경우 임의의 이름을 설정하고, 추후 사용자가 이름을 수정할 수 있도록 별도로 처리"
+          }
+        },
+        "logo": {
+          "photo": ["seoul_w_logo.svg"]
+        },
+        "figma": {
+          "scene": ["seoul_w_logo.svg"]
+        }
+      },
+      {
+        "project_name": "SAWING",
+        "project_type": "반응형 웹",
+        "project_thumnail": "sawing_thumnail.png",
+        "project_summary": "본 프로젝트는 TMDB API를 이용한 영화 사이트 정보 사이트로 반응형으로 만들었습니다.",
+        "development_period": {
+          "date": "2024.09.13(금) ~ 2024.9.26(목)",
+          "duration_weeks": 1
+        },
+        "team_composition": [
+          {
+            "name": "박지연",
+            "role": "디자인 및 메인 페이지, JSON 작업, 기타 API"
+          },
+          {
+            "name": "강민현",
+            "role": "서브 페이지, 기획 및 개발"
+          },
+          {
+            "name": "고유나",
+            "role": "서브 페이지 담당, 개발 및 리소스"
+          },
+          {
+            "name": "박민지",
+            "role": "서브 페이지 담당, JSON 작업 및 리소스"
+          }
+        ],
+        "development_environment": [
+          "HTTP",
+          "SCSS",
+          "JAVASCRIPT",
+          "REACT"
+        ]
+      }
+    ]
+  }

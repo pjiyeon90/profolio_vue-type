@@ -1,0 +1,61 @@
+*{
+  box-sizing: border-box;
+}
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif; /* 기본 폰트 설정 */
+}
+figure, p{
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-size: inherit;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input, textarea {
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  background-color: transparent;
+}
+
+textarea {
+  resize: vertical;
+}
